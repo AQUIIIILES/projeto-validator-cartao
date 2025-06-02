@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Validator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Credit Card Validator</h1>
+        <form action="/validate" method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="cardNumber">Enter Credit Card Number:</label>
+                <input type="text" id="cardNumber" name="card_number" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Validate</button>
+        </form>
+        {% if card_type %}
+            <div class="alert alert-info mt-4">
+                Card Type: {{ card_type }}
+            </div>
+        {% endif %}
+        {% if error %}
+            <div class="alert alert-danger mt-4">
+                {{ error }}
+            </div>
+        {% endif %}
+        
+    </div>
+</body>
+</html>
